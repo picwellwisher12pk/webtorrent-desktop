@@ -20,11 +20,13 @@ function dispatcher (...args) {
   var json = JSON.stringify(args)
   var handler = _dispatchers[json]
   if (!handler) {
-    _dispatchers[json] = (e) => {
-      // Don't click on whatever is below the button
-      e.stopPropagation()
-      // Don't regisiter clicks on disabled buttons
-      if (e.currentTarget.classList.contains('disabled')) return
+    handler = _dispatchers[json] = (e) => {
+      if (e && e.stopPropagation && e.currentTarget) {
+        // Don't click on whatever is below the button
+        e.stopPropagation()
+        // Don't regisiter clicks on disabled buttons
+        if (e.currentTarget.classList.contains('disabled')) return
+      }
       _dispatch.apply(null, args)
     }
   }

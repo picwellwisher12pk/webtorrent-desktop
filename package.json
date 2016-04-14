@@ -38,6 +38,8 @@
     "srt-to-vtt": "^1.0.3",
     "upload-element": "^1.0.1",
     "virtual-dom": "^2.1.1",
+    "wcjs-player": "^0.5.7",
+    "webchimera.js": "^0.2.3",
     "webtorrent": "0.x",
     "winreg": "feross/node-winreg"
   },
@@ -74,5 +76,9 @@
     "start": "electron .",
     "test": "standard",
     "update-authors": "./bin/update-authors.sh"
+  },
+  "cmake-js": {
+    "runtime": "electron",
+    "runtimeVersion": "0.37.5"
   }
 }
